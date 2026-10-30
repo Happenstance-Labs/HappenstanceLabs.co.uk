@@ -1,71 +1,218 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Happenstance Labs creates thoughtful digital products that make complex systems easier to understand and use.">
-  <meta name="theme-color" content="#07130f">
-  <title>Happenstance Labs — Thoughtful technology for complicated worlds</title>
+  <title>Happenstance Labs: UK politics, made playable</title>
+  <meta name="description" content="Happenstance Labs is a UK studio making Westminster easier to follow. We make ChamberWise, for learning how Parliament works, and Fantasy Westminster, the fantasy game scored on what MPs do in the Commons.">
+  <meta property="og:title" content="Happenstance Labs">
+  <meta property="og:description" content="Apps that make UK politics easier to follow and more fun to keep up with.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://happenstance-labs.co.uk/">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1512" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#f5f3ec;--muted:#a8b4ad;--green:#59d8a6;--gold:#d9b968;--line:rgba(255,255,255,.12)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:radial-gradient(circle at 80% 10%,rgba(48,151,108,.24),transparent 32%),linear-gradient(145deg,#07130f,#0b1b15 55%,#06100d);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(#000,transparent)}
-    a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 36px),1160px);margin:auto;position:relative;z-index:1}
-    nav{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:750}.mark{width:34px;aspect-ratio:1;border:1px solid rgba(89,216,166,.5);border-radius:50%;position:relative}
-    .mark:before,.mark:after{content:"";position:absolute;width:7px;aspect-ratio:1;border-radius:50%;background:var(--green);top:13px;left:7px;box-shadow:0 0 16px var(--green)}
-    .mark:after{left:20px;top:9px;background:var(--gold);box-shadow:0 0 16px var(--gold)}
-    .small{color:var(--muted);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
-    .hero{min-height:calc(100vh - 88px);display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center;padding:80px 0 100px}
-    .eyebrow{color:var(--green);font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:28px}
-    .eyebrow:before{content:"";display:inline-block;width:28px;height:1px;background:currentColor;margin-right:10px;vertical-align:middle}
-    h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.055em}h1{margin:0;font-size:clamp(4rem,8.3vw,8.1rem);line-height:.92}h1 em{display:block;color:var(--green);font-weight:400}
-    .intro{max-width:660px;color:#c9d0cc;font-size:clamp(1.05rem,1.5vw,1.28rem);line-height:1.75;margin:34px 0 0}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}.btn{min-height:52px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;font-weight:750;font-size:.92rem;border:1px solid var(--line);transition:.18s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--green);color:#07130f;border-color:var(--green)}
-    .orbit{min-height:470px;display:grid;place-items:center;position:relative}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(89,216,166,.18);border-radius:50%;width:370px;height:370px}.orbit:after{width:260px;height:260px;border-color:rgba(217,185,104,.14)}
-    .core{width:165px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;position:relative;z-index:2;background:radial-gradient(circle at 35% 30%,rgba(89,216,166,.24),rgba(9,28,21,.9) 65%);border:1px solid rgba(89,216,166,.35);box-shadow:0 0 75px rgba(50,170,122,.14)}
-    .core span{color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}.core strong{display:block;color:var(--ink);font:400 1.2rem Georgia,serif;letter-spacing:0;text-transform:none;margin-top:7px}
-    .section{padding:104px 0;border-top:1px solid var(--line)}.grid{display:grid;grid-template-columns:.5fr 1.5fr;gap:60px}.label{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
-    h2{font-size:clamp(2.7rem,5vw,5.1rem);line-height:1.03;margin:0}h2 span{color:var(--muted)}
-    .cards{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}.card{padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05);min-height:180px}.num{color:var(--gold);font:400 .72rem ui-monospace,monospace}.card h3{margin:40px 0 10px;font-size:1.03rem}.card p{margin:0;color:var(--muted);line-height:1.6;font-size:.91rem}
-    .venture{margin-top:28px;min-height:420px;padding:clamp(28px,5vw,62px);border:1px solid rgba(89,216,166,.25);border-radius:28px;background:linear-gradient(120deg,rgba(89,216,166,.09),transparent 58%),rgba(255,255,255,.035);display:grid;grid-template-columns:1fr .75fr;gap:40px;align-items:end;overflow:hidden;position:relative}
-    .venture:after{content:"CW";position:absolute;right:-22px;top:-45px;color:transparent;-webkit-text-stroke:1px rgba(89,216,166,.12);font:400 clamp(12rem,25vw,23rem) Georgia,serif;letter-spacing:-.12em;line-height:1}.venture>div,.venture>a{position:relative;z-index:1}.venture h2{font-size:clamp(3.2rem,6vw,6rem);margin-bottom:18px}.venture p{max-width:600px;color:#c7cfca;font-size:1.04rem;line-height:1.7;margin:0}.venture a{justify-self:end;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:7px;font-weight:750}
-    footer{min-height:180px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:30px;color:var(--muted);font-size:.84rem;line-height:1.6}
-    @media(max-width:880px){.hero{grid-template-columns:1fr}.orbit{display:none}.grid{grid-template-columns:1fr}.cards{grid-column:1}.venture{grid-template-columns:1fr}.venture a{justify-self:start}}
-    @media(max-width:650px){nav{height:74px}.small{display:none}.hero{min-height:auto;padding:64px 0 84px}h1{font-size:clamp(3.5rem,18vw,5.4rem)}.section{padding:76px 0}.cards{grid-template-columns:1fr}.card{min-height:150px}.card h3{margin-top:26px}.venture{min-height:500px;border-radius:22px}footer{align-items:flex-start;justify-content:center;flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+    :root{
+      --bg:#f6f4ef;--surface:#fff;--ink:#14211c;--ink-2:#33433c;--muted:#5d6b64;--line:#e3ded2;
+      --green:#0b5c3e;--green-ink:#fff;--brass:#a8863c;
+      --fw-bg:#07201a;--fw-ink:#eaf5ef;--fw-muted:#a6bdb2;--fw-mint:#2fd39a;--fw-line:rgba(234,245,239,.14);
+      --radius:20px;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{--bg:#0c1512;--surface:#121e1a;--ink:#eef2ee;--ink-2:#c9d3cd;--muted:#93a39b;--line:#22322c;--green:#4cc08f;--green-ink:#06130e;--fw-bg:#0a2a22;--fw-line:rgba(234,245,239,.16)}
+    }
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    .wrap{width:min(100% - 32px,1080px);margin-inline:auto}
+    h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
+    p{margin:0;text-wrap:pretty}
+
+    header{border-bottom:1px solid var(--line)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+    .wordmark{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:1.05rem}
+    .wordmark span{color:var(--muted);font-weight:500}
+    .bar nav{display:flex;gap:22px;font-size:.92rem;font-weight:600}
+    .bar nav a{text-decoration:none;color:var(--ink-2)}
+    .bar nav a:hover{color:var(--ink)}
+
+    .hero{padding:88px 0 72px}
+    .kicker{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+    .hero h1{font-size:clamp(2.5rem,6.4vw,4.6rem);max-width:15ch}
+    .hero p{margin-top:24px;max-width:58ch;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--ink-2)}
+
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:40px 0 88px;border-top:1px solid var(--line)}
+    .principles h3{font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px}
+    .principles p{color:var(--muted);font-size:.96rem}
+
+    .apps{padding-bottom:96px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
+    .section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+    .section-head p{color:var(--muted);max-width:40ch;font-size:.96rem}
+
+    .app{border-radius:var(--radius);padding:clamp(24px,4.5vw,48px);display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+    .app + .app{margin-top:20px}
+    .app-cw{background:var(--surface);border:1px solid var(--line)}
+    .app-fw{background:var(--fw-bg);border:1px solid rgba(47,211,154,.22);color:var(--fw-ink);--muted:var(--fw-muted);--line:var(--fw-line);--ink-2:var(--fw-ink)}
+    .app-id{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+    .app-id img{width:64px;height:64px;border-radius:15px;flex:none}
+    .app-cw .app-id img{background:#fff;border:1px solid var(--line)}
+    .app-id h3{font-size:clamp(1.6rem,3vw,2.1rem)}
+    .tag{display:inline-block;margin-top:6px;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+    .app-fw .tag{color:var(--fw-mint)}
+    .lede{font-size:1.08rem;color:var(--ink-2);max-width:52ch}
+    .features{list-style:none;padding:0;margin:0;display:grid;gap:14px;font-size:.96rem}
+    .features li{padding-left:18px;position:relative;color:var(--ink-2)}
+    .features li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--brass)}
+    .app-fw .features li:before{background:var(--fw-mint)}
+    .features strong{color:inherit;font-weight:700}
+
+    .get{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid var(--line)}
+    .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border-radius:12px;font-weight:700;font-size:.93rem;text-decoration:none;border:1px solid var(--line);transition:transform .15s,border-color .15s}
+    .btn:hover{transform:translateY(-1px);border-color:currentColor}
+    .btn svg{width:18px;height:18px;flex:none}
+    .btn small{display:block;font-size:.68rem;font-weight:500;opacity:.75;line-height:1.1}
+    .btn .two{line-height:1.15}
+    .btn-primary{background:var(--green);color:var(--green-ink);border-color:var(--green)}
+    .app-fw .btn-primary{background:var(--fw-mint);color:#05231a;border-color:var(--fw-mint)}
+    .btn[aria-disabled="true"]{opacity:.55;cursor:default;pointer-events:none;border-style:dashed}
+
+    .about{padding:88px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+    .about h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+    .about .body{display:grid;gap:18px;color:var(--ink-2)}
+    .about a{font-weight:700;color:var(--green)}
+
+    footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:.86rem}
+    footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
+    footer a{text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    a:focus-visible,.btn:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:8px}
+    .app-fw a:focus-visible{outline-color:var(--fw-mint)}
+
+    @media (max-width:860px){
+      .app,.about{grid-template-columns:1fr}
+      .principles{grid-template-columns:1fr;gap:22px}
+      .section-head{flex-direction:column;align-items:start}
+    }
+    @media (max-width:560px){
+      .bar nav{display:none}
+      .hero{padding:56px 0 48px}
+      .btn{flex:1 1 100%;justify-content:center}
+    }
+    @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav><a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><span>Happenstance Labs</span></a><span class="small">Independent product studio · UK</span></nav>
-    <main id="top">
-      <section class="hero">
+  <header>
+    <div class="wrap bar">
+      <a class="wordmark" href="#top">Happenstance <span>Labs</span></a>
+      <nav aria-label="Main"><a href="#apps">Our apps</a><a href="#about">About</a><a href="mailto:support@chamberwise.co.uk">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <span class="kicker">UK politics, made playable</span>
+      <h1>Westminster should be easy to follow.</h1>
+      <p>Parliament decides things that shape everyday life, but it rarely explains itself well. We make apps that help people understand how it works, keep up with what happens there, and have some fun along the way.</p>
+    </section>
+
+    <section class="wrap principles" aria-label="How we work">
+      <div><h3>Plain English</h3><p>We explain the jargon instead of hiding behind it. If a 15-year-old can't follow it, we rewrite it.</p></div>
+      <div><h3>Non-partisan</h3><p>We don't back parties, policies or MPs. We show what happened and leave the opinions to you.</p></div>
+      <div><h3>Built on the record</h3><p>Our apps use official Parliament data, and we say where every figure comes from.</p></div>
+    </section>
+
+    <section class="wrap apps" id="apps">
+      <div class="section-head">
+        <h2>Our apps</h2>
+        <p>One for getting to know Parliament, one for following it week by week.</p>
+      </div>
+
+      <article class="app app-cw" aria-labelledby="cw-title">
         <div>
-          <div class="eyebrow">Ideas, engineered</div>
-          <h1>Thoughtful technology for <em>complicated worlds.</em></h1>
-          <p class="intro">Happenstance Labs is an independent product company creating useful, engaging digital experiences at the intersection of technology, information and everyday life.</p>
-          <div class="actions"><a class="btn primary" href="#venture">See what is emerging ↘</a><a class="btn" href="mailto:support@chamberwise.co.uk">Start a conversation</a></div>
+          <div class="app-id">
+            <img src="assets/chamberwise-icon.png" alt="" width="64" height="64">
+            <div><h3 id="cw-title">ChamberWise</h3><span class="tag">Learn how Parliament works</span></div>
+          </div>
+          <p class="lede">A friendly guide to Westminster. Short lessons and daily games teach you how laws get made, and you can look up your MP and your area to see what's happening there.</p>
         </div>
-        <div class="orbit" aria-hidden="true"><div class="core"><span>Built around<strong>curiosity</strong></span></div></div>
-      </section>
-      <section class="section grid">
-        <div class="label">How we think</div>
-        <h2>Complexity is inevitable. <span>Confusion is not.</span></h2>
-        <div class="cards">
-          <article class="card"><span class="num">01</span><h3>Make it understandable</h3><p>We turn dense subjects and difficult systems into experiences people can actually navigate.</p></article>
-          <article class="card"><span class="num">02</span><h3>Make it worth returning to</h3><p>Good products earn attention through usefulness, clarity and a little sense of discovery.</p></article>
-          <article class="card"><span class="num">03</span><h3>Build with intent</h3><p>Technology serves the idea—not the other way around. Every feature should have a reason to exist.</p></article>
+        <ul class="features">
+          <li><strong>Daily brief:</strong> what happened in Parliament yesterday, in a few minutes.</li>
+          <li><strong>Lessons and games:</strong> bite-size learning, with streaks and XP to keep you coming back.</li>
+          <li><strong>Your MP and your area:</strong> votes, bills, petitions and local statistics in one place.</li>
+          <li><strong>Leagues:</strong> compete with friends, classmates or colleagues.</li>
+        </ul>
+        <div class="get" aria-label="Get ChamberWise">
+          <a class="btn btn-primary" href="https://chamberwise.co.uk" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+            Open in your browser
+          </a>
+          <a class="btn" href="https://apps.apple.com/gb/app/chamberwise/id6785981808" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9s-2-.9-3.4-.9c-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8 2.2-1.3 3.1-2.5c1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>
+            <span class="two"><small>Download on the</small>App Store</span>
+          </a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=uk.co.chamberwise.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.6c-.2.2-.3.6-.3 1v16.8c0 .4.1.8.3 1l9.3-9.4L4 2.6zm10.6 10.7 2.6 2.6-11.3 6.4 8.7-9zm0-2.6L5.9 1.7l11.3 6.4-2.6 2.6zm3.9-1.7 3 1.7c.9.5.9 1.3 0 1.8l-3 1.7-2.8-2.6 2.8-2.6z"/></svg>
+            <span class="two"><small>Get it on</small>Google Play</span>
+          </a>
         </div>
-      </section>
-      <section class="section" id="venture">
-        <div class="label">Our first public venture</div>
-        <div class="venture"><div><h2>ChamberWise</h2><p>A new way to explore, understand and engage with UK Parliament. Built to make Westminster feel less distant—and considerably more approachable.</p></div><a href="https://chamberwise.co.uk" target="_blank" rel="noopener">Visit ChamberWise ↗</a></div>
-      </section>
-    </main>
-    <footer><div>Happenstance Labs develops original digital products for areas where better design and thoughtful technology can make a meaningful difference.</div><div>© <span id="year"></span> Happenstance Labs</div></footer>
-  </div>
+      </article>
+
+      <article class="app app-fw" aria-labelledby="fw-title">
+        <div>
+          <div class="app-id">
+            <img src="assets/fantasy-westminster-icon.png" alt="" width="64" height="64">
+            <div><h3 id="fw-title">Fantasy Westminster</h3><span class="tag">New · 2026–27 season</span></div>
+          </div>
+          <p class="lede">Fantasy football, but the players are MPs. Pick a squad, set your line-up before each week's deadline, and score points for the work your MPs do in the House of Commons.</p>
+        </div>
+        <ul class="features">
+          <li><strong>Pick 11 MPs</strong> on a £100m budget, with no more than three from any one party.</li>
+          <li><strong>Points for the work:</strong> debates, questions, committee sessions and turning up to vote.</li>
+          <li><strong>Never for how they vote.</strong> An Aye scores the same as a No, so no side is favoured.</li>
+          <li><strong>Leagues and transfers:</strong> captain your star MP, make transfers, and beat your mates.</li>
+        </ul>
+        <div class="get" aria-label="Get Fantasy Westminster">
+          <a class="btn btn-primary" href="https://fantasy-westminster.vercel.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+            Play in your browser
+          </a>
+          <!-- Store listings are not live yet. When they are: set the href, remove aria-disabled and tabindex, and change "Coming soon to" back to "Download on the" / "Get it on". -->
+          <a class="btn" aria-disabled="true" tabindex="-1">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9s-2-.9-3.4-.9c-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8 2.2-1.3 3.1-2.5c1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>
+            <span class="two"><small>Coming soon to the</small>App Store</span>
+          </a>
+          <a class="btn" aria-disabled="true" tabindex="-1">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.6c-.2.2-.3.6-.3 1v16.8c0 .4.1.8.3 1l9.3-9.4L4 2.6zm10.6 10.7 2.6 2.6-11.3 6.4 8.7-9zm0-2.6L5.9 1.7l11.3 6.4-2.6 2.6zm3.9-1.7 3 1.7c.9.5.9 1.3 0 1.8l-3 1.7-2.8-2.6 2.8-2.6z"/></svg>
+            <span class="two"><small>Coming soon to</small>Google Play</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap about" id="about">
+      <h2>About us</h2>
+      <div class="body">
+        <p>Happenstance Labs is a small, independent studio in the UK. We think more people would take an interest in Parliament if it were easier to get into, so that's what we work on.</p>
+        <p>Everything we make uses official UK Parliament data, published under the Open Parliament Licence. We're not affiliated with Parliament, any party or any campaign.</p>
+        <p>Questions, feedback or schools interested in using our apps: <a href="mailto:support@chamberwise.co.uk">support@chamberwise.co.uk</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap row">
+      <span>© <span id="year">2026</span> Happenstance Labs Ltd</span>
+      <span><a href="https://chamberwise.co.uk" target="_blank" rel="noopener">ChamberWise</a> · <a href="https://fantasy-westminster.vercel.app" target="_blank" rel="noopener">Fantasy Westminster</a></span>
+    </div>
+  </footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
