@@ -13,11 +13,12 @@
   <meta name="theme-color" content="#0c1512" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#f6f4ef;--surface:#fff;--ink:#14211c;--ink-2:#33433c;--muted:#5d6b64;--line:#e3ded2;
-      --green:#0b5c3e;--green-ink:#fff;--brass:#a8863c;
+      --green:#0b5c3e;--green-ink:#fff;--brass:#a8863c;--commons:#006548;--lords:#a51c30;
+      --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
       --fw-bg:#07201a;--fw-ink:#eaf5ef;--fw-muted:#a6bdb2;--fw-mint:#2fd39a;--fw-line:rgba(234,245,239,.14);
       --radius:20px;
     }
@@ -30,10 +31,12 @@
     a{color:inherit}
     img{display:block;max-width:100%}
     .wrap{width:min(100% - 32px,1080px);margin-inline:auto}
-    h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
+    h1,h2,h3{margin:0;font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.1;text-wrap:balance}
     p{margin:0;text-wrap:pretty}
 
+    /* Commons green and Lords red: the two Houses */
     header{border-bottom:1px solid var(--line)}
+    header:before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--commons) 50%,var(--lords) 50%)}
     .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
     .wordmark{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:1.05rem}
     .wordmark span{color:var(--muted);font-weight:500}
@@ -41,13 +44,22 @@
     .bar nav a{text-decoration:none;color:var(--ink-2)}
     .bar nav a:hover{color:var(--ink)}
 
-    .hero{padding:88px 0 72px}
+    .hero{padding:88px 0 72px;position:relative}
+    .hero>*{position:relative;z-index:1}
+    /* Perpendicular Gothic panelling, after the Palace of Westminster facade */
+    .hero-art{position:absolute!important;z-index:0!important;top:0;bottom:0;right:0;width:46%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+    .hero-art:before{content:"";position:absolute;inset:0;background:var(--green);opacity:.16;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='132' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M6 132V46Q6 18 22 6Q38 18 38 46v86'/%3E%3Cpath d='M22 6v126M6 70h32M6 100h32'/%3E%3Cpath d='M6 46q8-14 16-14t16 14'/%3E%3Cpath d='M10 70V54q0-8 6-12M34 70V54q0-8-6-12'/%3E%3C/svg%3E") 0 0/44px 132px repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='132' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M6 132V46Q6 18 22 6Q38 18 38 46v86'/%3E%3Cpath d='M22 6v126M6 70h32M6 100h32'/%3E%3Cpath d='M6 46q8-14 16-14t16 14'/%3E%3Cpath d='M10 70V54q0-8 6-12M34 70V54q0-8-6-12'/%3E%3C/svg%3E") 0 0/44px 132px repeat}
     .kicker{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:20px}
-    .hero h1{font-size:clamp(2.5rem,6.4vw,4.6rem);max-width:15ch}
+    .hero h1{font-size:clamp(2.6rem,6.6vw,4.8rem);max-width:14ch}
     .hero p{margin-top:24px;max-width:58ch;font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--ink-2)}
 
-    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:40px 0 88px;border-top:1px solid var(--line)}
-    .principles h3{font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px}
+    /* Laid out like the Commons Order Paper */
+    .principles{padding:40px 0 88px;border-top:1px solid var(--line)}
+    .principles ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .principles li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-content:start;padding-top:16px;border-top:2px solid var(--ink)}
+    .principles .n{grid-row:span 2;font:700 1.6rem/1 var(--serif);color:var(--green)}
+    .principles h3{font-size:1.15rem;letter-spacing:0}
+    .label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
     .principles p{color:var(--muted);font-size:.96rem}
 
     .apps{padding-bottom:96px}
@@ -88,6 +100,7 @@
     .about a{font-weight:700;color:var(--green)}
 
     footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:.86rem}
+    footer .licence{margin-top:14px;font-size:.78rem}
     footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
     footer a{text-decoration:none}
     footer a:hover{text-decoration:underline}
@@ -97,7 +110,8 @@
 
     @media (max-width:860px){
       .app,.about{grid-template-columns:1fr}
-      .principles{grid-template-columns:1fr;gap:22px}
+      .principles ol{grid-template-columns:1fr;gap:22px}
+      .hero-art{display:none}
       .section-head{flex-direction:column;align-items:start}
     }
     @media (max-width:560px){
@@ -118,15 +132,19 @@
 
   <main id="top">
     <section class="wrap hero">
+      <div class="hero-art" aria-hidden="true"></div>
       <span class="kicker">UK politics, made understandable</span>
       <h1>Westminster should be easy to follow.</h1>
       <p>Parliament decides things that shape everyday life, but it rarely explains itself well. We make apps that help people understand how it works, keep up with what happens there, and have some fun along the way.</p>
     </section>
 
-    <section class="wrap principles" aria-label="How we work">
-      <div><h3>Plain English</h3><p>We explain the jargon instead of hiding behind it, so you don't need to know how Parliament works before you start.</p></div>
-      <div><h3>Non-partisan</h3><p>We don't back parties, policies or MPs. We show what happened and leave the opinions to you.</p></div>
-      <div><h3>Built on the record</h3><p>Our apps use official Parliament data, and we say where every figure comes from.</p></div>
+    <section class="wrap principles" aria-labelledby="ob">
+      <span class="label" id="ob">Order of business</span>
+      <ol>
+      <li><span class="n" aria-hidden="true">1.</span><h3>Plain English</h3><p>We explain the jargon instead of hiding behind it, so you don't need to know how Parliament works before you start.</p></li>
+      <li><span class="n" aria-hidden="true">2.</span><h3>Non-partisan</h3><p>We don't back parties, policies or MPs. We show what happened and leave the opinions to you.</p></li>
+      <li><span class="n" aria-hidden="true">3.</span><h3>Built on the record</h3><p>Our apps use official Parliament data, and we say where every figure comes from.</p></li>
+      </ol>
     </section>
 
     <section class="wrap apps" id="apps">
@@ -212,6 +230,7 @@
       <span>© <span id="year">2026</span> Happenstance Labs Ltd</span>
       <span><a href="https://chamberwise.co.uk" target="_blank" rel="noopener">ChamberWise</a> · <a href="https://fantasy-westminster.vercel.app" target="_blank" rel="noopener">Fantasy Westminster</a></span>
     </div>
+    <p class="wrap licence">Contains Parliamentary information licensed under the Open Parliament Licence v3.0.</p>
   </footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
